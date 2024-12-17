@@ -1,5 +1,10 @@
 # ChecklistApp
 
+**ChecklistApp** — это веб-приложение для создания чеклистов, разработанное с использованием **Angular** версии 19.0.4. В качестве хранилища данных используется **IndexedDB** с библиотекой [Dexie](https://dexie.org).
+
+Готовый результат можно посмотреть по ссылке:  
+[ChecklistApp Demo](https://checklist-app-angular.netlify.app/checklist).
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
 ## Development server
@@ -57,3 +62,9 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+Технологии
+Angular 19.0.4 — фреймворк для разработки веб-приложений.
+IndexedDB — база данных в браузере для хранения данных.
+Dexie — удобная библиотека для работы с IndexedDB.
+SCSS — препроцессор CSS для стилизации интерфейса.
