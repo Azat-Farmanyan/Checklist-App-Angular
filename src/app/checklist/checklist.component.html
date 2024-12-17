@@ -1,0 +1,68 @@
+<div
+  class="checklist"
+  appClickOutside
+  (clickOutside)="closeChecklist()"
+>
+  <div
+    class="checklist_header"
+    (click)="checklistToggle()"
+  >
+    <input
+      type="checkbox"
+      [checked]="allChecked"
+      [indeterminate]="allIndeterminate"
+      (change)="toggleAllChecked()"
+      (click)="$event.stopPropagation()"
+    >
+    <span [ngClass]="{ 'black': !openChecklist, 'gray': openChecklist }">
+      {{ checklistInfo() }}
+    </span>
+  </div>
+  @if (openChecklist) {
+  <div
+    class="checklist_body"
+    @toggleHeight
+  >
+    @for ( category of categories; track category.id) {
+    <ul
+      class="checklist_item"
+      [ngClass]="{'shadow': category.open}"
+    >
+      <li class="category">
+        <div
+          class="category_header"
+          (click)="toggleCategoryOpen(category)"
+        >
+          <input
+            type="checkbox"
+            [checked]="category.checked"
+            [indeterminate]="category.categoryIndeterminate"
+            (change)="toggleCategoryChecked(category)"
+            (click)="$event.stopPropagation()"
+          >
+          <span class="gray">{{ category.name }}</span>
+        </div>
+        <ul>
+          @for (subcategory of category.subcategories; track subcategory.id) {
+          @if (category.open) {
+          <li
+            [ngStyle]="{'background-color': subcategory.color}"
+            class="subcategory"
+            @toggleHeight
+          >
+            <input
+              type="checkbox"
+              [checked]="subcategory.checked"
+              (change)="toggleSubcategoryChecked(subcategory)"
+            >
+            {{ subcategory.name }}
+          </li>
+          }
+          }
+        </ul>
+      </li>
+    </ul>
+    }
+  </div>
+  }
+</div>
